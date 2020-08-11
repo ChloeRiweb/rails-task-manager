@@ -1,0 +1,22 @@
+<h1>My tasks</h1>
+<ul>
+  <% @tasks.each do |task| %>
+  <li>
+    <%if task.completed %>
+    <%= image_tag "done.png", alt: "done", width: 16 %>
+    <!-- <img src='../assets/images/done.png' alt='done'> -->
+    <% else %>
+     <!-- <img src='../assets/images/checkbox.png' alt='todo'> -->
+     <%= image_tag "checkbox.png", alt: "todo", width: 16 %>
+    <% end %>
+    <%= link_to task.title, task_path(task.id) %>
+    <!-- <%= image_tag "trash.png", alt: "delete", width: 16 %> -->
+    <%= link_to "🗑",
+              task_path(task.id),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+  </li>
+  <% end %>
+</ul>
+<%= link_to "Add new task", new_task_path %>
+

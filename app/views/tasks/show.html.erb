@@ -1,0 +1,20 @@
+<h1><%= @task.title %></h1>
+
+<div class="green-box">
+<%= @task.details %>
+</div>
+
+<div class="task-status">
+  <%if @task.completed %>
+    <%= image_tag "done.png", alt: "done", width: 16 %>
+    <p>This task is completed</p>
+  <% else %>
+    <%= image_tag "checkbox.png", alt: "todo", width: 16 %>
+    <p>This task is not completed yet</p>
+  <% end %>
+</div>
+
+<%= link_to "Edit this task", edit_task_path %>
+<hr>
+<%= link_to "Back to list", tasks_path  %>
+
